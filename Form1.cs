@@ -146,7 +146,7 @@ namespace Oma
                 }
                 catch
                 {
-                    txtU.BackColor = Color.Red;
+                    txtU.BackColor = Color.IndianRed;
                 }
             }
 
@@ -171,7 +171,7 @@ namespace Oma
                 }
                 catch
                 {
-                    txtI.BackColor = Color.Red;
+                    txtI.BackColor = Color.IndianRed;
                 }
             }
 
@@ -196,7 +196,7 @@ namespace Oma
                 }
                 catch
                 {
-                    txtR.BackColor = Color.Red;
+                    txtR.BackColor = Color.IndianRed;
                 }
             }
 
