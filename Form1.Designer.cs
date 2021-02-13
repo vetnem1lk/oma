@@ -187,7 +187,7 @@ namespace Oma
             // button1
             // 
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Location = new System.Drawing.Point(279, 336);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 37);

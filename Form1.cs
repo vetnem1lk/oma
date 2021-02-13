@@ -116,8 +116,8 @@ namespace Oma
 
             if (txtI.TextLength == 0)
                 txtI.BackColor = Color.Snow;
-
         }
+
         private void ClearFields()
         {
             txtI.Text = string.Empty;
@@ -149,7 +149,7 @@ namespace Oma
             else if (checkBoxI.Checked && txtU.BackColor == Color.White && txtR.BackColor == Color.White)
                 button1.Enabled = true;
             else
-                button1.Enabled = false;            
+                button1.Enabled = false;
         }
 
         private void txtI_TextChanged(object sender, EventArgs e)
@@ -206,60 +206,22 @@ namespace Oma
         {
             if (checkBoxR.Checked)
             {
-                txtAnswer.Text = "R - Сопротивление равно:";
-                
-                try
-                {
-                    U = Convert.ToDouble(txtU.Text);
-                    I = Convert.ToDouble(txtI.Text);
-                }
-                catch
-                {
-                    txtAnswer.Text = "Попробуйте заново!";
-                    txtIntAsw.Text = string.Empty;
-                    MessageBox.Show("Введите цифровые значения!", "Ошибка!");
-                    return;
-                }
                 R = U / I;
+                txtAnswer.Text = "R - Сопротивление равно:";
                 txtIntAsw.Text = Convert.ToString(R);
             }
             if (checkBoxI.Checked)
             {
-                txtAnswer.Text = "I - Сила тока равна:";
-                try
-                {
-                    U = Convert.ToDouble(txtU.Text);
-                    R = Convert.ToDouble(txtR.Text);
-                }
-                catch
-                {
-                    txtAnswer.Text = "Попробуйте заново!";
-                    txtIntAsw.Text = string.Empty;
-                    MessageBox.Show("Введите цифровые значения!", "Ошибка!");
-                    return;
-
-                }
                 I = U / R;
+                txtAnswer.Text = "I - Сила тока равна:";
                 txtIntAsw.Text = Convert.ToString(I);
             }
             if (checkBoxU.Checked)
             {
-                txtAnswer.Text = "U - Напряжение равняется:";
-                try
-                {
-                    I = Convert.ToDouble(txtI.Text);
-                    R = Convert.ToDouble(txtR.Text);
-                }
-                catch
-                {
-                    txtAnswer.Text = "Попробуйте заново!";
-                    txtIntAsw.Text = string.Empty;
-                    MessageBox.Show("Введите цифровые значения!", "Ошибка!");
-                    return;
-                }
                 U = I * R;
+                txtAnswer.Text = "U - Напряжение равняется:";
                 txtIntAsw.Text = Convert.ToString(U);
             }
-        }
+        }     
     }
 }
