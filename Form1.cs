@@ -15,8 +15,8 @@ namespace Oma
         public Form1()
         {
             InitializeComponent();
-            
         }
+
         double R, U, I;
 
         private void Form1_Load(object sender, EventArgs e)
@@ -24,10 +24,11 @@ namespace Oma
             labelR.Enabled = false;
             labelU.Enabled = false;
             labelI.Enabled = false;
+            label6.Enabled = false;
             txtI.Enabled = false;
             txtU.Enabled = false;
             txtR.Enabled = false;
-
+            button1.Enabled = false;
         }
 
         private void checkBoxR_CheckedChanged(object sender, EventArgs e)
@@ -36,22 +37,22 @@ namespace Oma
             {
                 labelU.Enabled = true;
                 labelI.Enabled = true;
+                label6.Enabled = true;
                 txtI.Enabled = true;
                 txtU.Enabled = true;
                 checkBoxU.Enabled = false;
                 checkBoxI.Enabled = false;
             }
-            if (!checkBoxR.Checked)
+            else
             {
                 labelU.Enabled = false;
                 labelI.Enabled = false;
+                label6.Enabled = false;
                 txtI.Enabled = false;
                 txtU.Enabled = false;
                 checkBoxU.Enabled = true;
                 checkBoxI.Enabled = true;
-                txtI.Text = string.Empty;
-                txtU.Text = string.Empty;
-                txtR.Text = string.Empty;
+                ClearFields();
             }
         }
 
@@ -61,22 +62,22 @@ namespace Oma
             {
                 labelR.Enabled = true;
                 labelI.Enabled = true;
+                label6.Enabled = true;
                 txtI.Enabled = true;
                 txtR.Enabled = true;
                 checkBoxR.Enabled = false;
                 checkBoxI.Enabled = false;
             }
-            if (!checkBoxU.Checked)
+            else
             {
                 labelR.Enabled = false;
                 labelI.Enabled = false;
+                label6.Enabled = false;
                 txtI.Enabled = false;
                 txtR.Enabled = false;
                 checkBoxR.Enabled = true;
                 checkBoxI.Enabled = true;
-                txtI.Text = string.Empty;
-                txtU.Text = string.Empty;
-                txtR.Text = string.Empty;
+                ClearFields();
             }
         }
 
@@ -86,23 +87,119 @@ namespace Oma
             {
                 labelR.Enabled = true;
                 labelU.Enabled = true;
+                label6.Enabled = true;
                 txtU.Enabled = true;
                 txtR.Enabled = true;
                 checkBoxR.Enabled = false;
                 checkBoxU.Enabled = false;
             }
-            if (!checkBoxI.Checked)
+            else
             {
                 labelR.Enabled = false;
                 labelU.Enabled = false;
+                label6.Enabled = false;
                 txtU.Enabled = false;
                 txtR.Enabled = false;
                 checkBoxR.Enabled = true;
                 checkBoxU.Enabled = true;
-                txtI.Text = string.Empty;
-                txtU.Text = string.Empty;
-                txtR.Text = string.Empty;
+                ClearFields();
             }
+        }
+
+        private void EmptyString()
+        {
+            if (txtU.TextLength == 0)
+                txtU.BackColor = Color.Snow;
+
+            if (txtR.TextLength == 0)
+                txtR.BackColor = Color.Snow;
+
+            if (txtI.TextLength == 0)
+                txtI.BackColor = Color.Snow;
+
+        }
+        private void ClearFields()
+        {
+            txtI.Text = string.Empty;
+            txtU.Text = string.Empty;
+            txtR.Text = string.Empty;
+            txtAnswer.Text = string.Empty;
+            txtIntAsw.Text = string.Empty;
+        }
+
+        private void txtU_TextChanged(object sender, EventArgs e)
+        {
+            EmptyString();
+
+            if (txtU.TextLength > 0)
+            {
+                try
+                {
+                    U = Convert.ToDouble(txtU.Text);
+                    txtU.BackColor = Color.White;
+                }
+                catch
+                {
+                    txtU.BackColor = Color.Red;
+                }
+            }
+
+            if (checkBoxR.Checked && txtU.BackColor == Color.White && txtI.BackColor == Color.White)
+                button1.Enabled = true;
+            else if (checkBoxI.Checked && txtU.BackColor == Color.White && txtR.BackColor == Color.White)
+                button1.Enabled = true;
+            else
+                button1.Enabled = false;            
+        }
+
+        private void txtI_TextChanged(object sender, EventArgs e)
+        {
+            EmptyString();
+
+            if (txtI.TextLength > 0)
+            {
+                try
+                {
+                    I = Convert.ToDouble(txtI.Text);
+                    txtI.BackColor = Color.White;
+                }
+                catch
+                {
+                    txtI.BackColor = Color.Red;
+                }
+            }
+
+            if (checkBoxR.Checked && txtU.BackColor == Color.White && txtI.BackColor == Color.White)
+                button1.Enabled = true;
+            else if (checkBoxU.Checked && txtI.BackColor == Color.White && txtR.BackColor == Color.White)
+                button1.Enabled = true;
+            else
+                button1.Enabled = false;
+        }
+
+        private void txtR_TextChanged(object sender, EventArgs e)
+        {
+            EmptyString();
+
+            if (txtR.TextLength > 0)
+            {
+                try
+                {
+                    R = Convert.ToDouble(txtR.Text);
+                    txtR.BackColor = Color.White;
+                }
+                catch
+                {
+                    txtR.BackColor = Color.Red;
+                }
+            }
+
+            if (checkBoxI.Checked && txtU.BackColor == Color.White && txtR.BackColor == Color.White)
+                button1.Enabled = true;
+            else if (checkBoxU.Checked && txtI.BackColor == Color.White && txtR.BackColor == Color.White)
+                button1.Enabled = true;
+            else
+                button1.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -110,12 +207,13 @@ namespace Oma
             if (checkBoxR.Checked)
             {
                 txtAnswer.Text = "R - Сопротивление равно:";
+                
                 try
                 {
                     U = Convert.ToDouble(txtU.Text);
                     I = Convert.ToDouble(txtI.Text);
                 }
-                catch 
+                catch
                 {
                     txtAnswer.Text = "Попробуйте заново!";
                     txtIntAsw.Text = string.Empty;
