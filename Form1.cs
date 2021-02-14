@@ -42,6 +42,7 @@ namespace Oma
                 txtU.Enabled = true;
                 checkBoxU.Enabled = false;
                 checkBoxI.Enabled = false;
+                label4.Enabled = false;
             }
             else
             {
@@ -52,6 +53,7 @@ namespace Oma
                 txtU.Enabled = false;
                 checkBoxU.Enabled = true;
                 checkBoxI.Enabled = true;
+                label4.Enabled = true;
                 ClearFields();
             }
         }
@@ -66,7 +68,8 @@ namespace Oma
                 txtI.Enabled = true;
                 txtR.Enabled = true;
                 checkBoxR.Enabled = false;
-                checkBoxI.Enabled = false;
+                checkBoxI.Enabled = false; 
+                label4.Enabled = false;
             }
             else
             {
@@ -77,6 +80,7 @@ namespace Oma
                 txtR.Enabled = false;
                 checkBoxR.Enabled = true;
                 checkBoxI.Enabled = true;
+                label4.Enabled = true;
                 ClearFields();
             }
         }
@@ -92,6 +96,7 @@ namespace Oma
                 txtR.Enabled = true;
                 checkBoxR.Enabled = false;
                 checkBoxU.Enabled = false;
+                label4.Enabled = false;
             }
             else
             {
@@ -102,6 +107,7 @@ namespace Oma
                 txtR.Enabled = false;
                 checkBoxR.Enabled = true;
                 checkBoxU.Enabled = true;
+                label4.Enabled = true;
                 ClearFields();
             }
         }
