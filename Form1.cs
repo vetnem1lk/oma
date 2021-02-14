@@ -126,12 +126,15 @@ namespace Oma
 
         private void ClearFields()
         {
+            label2.Enabled = false;
             txtI.Text = string.Empty;
             txtU.Text = string.Empty;
             txtR.Text = string.Empty;
             txtAnswer.Text = string.Empty;
             txtIntAsw.Text = string.Empty;
         }
+
+        
 
         private void txtU_TextChanged(object sender, EventArgs e)
         {
@@ -210,22 +213,24 @@ namespace Oma
 
         private void button1_Click(object sender, EventArgs e)
         {
+            label2.Enabled = true;
+
             if (checkBoxR.Checked)
             {
                 R = U / I;
-                txtAnswer.Text = "R - Сопротивление равно:";
+                txtAnswer.Text = "R - Сопротивление:";
                 txtIntAsw.Text = Convert.ToString(R);
             }
             if (checkBoxI.Checked)
             {
                 I = U / R;
-                txtAnswer.Text = "I - Сила тока равна:";
+                txtAnswer.Text = "I - Сила тока:";
                 txtIntAsw.Text = Convert.ToString(I);
             }
             if (checkBoxU.Checked)
             {
                 U = I * R;
-                txtAnswer.Text = "U - Напряжение равняется:";
+                txtAnswer.Text = "U - Напряжение:";
                 txtIntAsw.Text = Convert.ToString(U);
             }
         }     
